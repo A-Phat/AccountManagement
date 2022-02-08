@@ -12,8 +12,6 @@ class AuthenticationService {
   static const List<String> _scopes = <String>[
     'openid',
     'profile',
-    'defaultApi',
-    'roles',
   ];
   String logoutUrl = "";  //format 2021-12-1
 
@@ -38,7 +36,9 @@ class AuthenticationService {
       client,
       scopes: _scopes,
       urlLancher: urlLauncher,
-      port: 3000,
+      port: 5001,
+      redirectUri:  Uri.parse("https://localhost:5001/external/callback")
+
     );
 
     // starts the authentication
